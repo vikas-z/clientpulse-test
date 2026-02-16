@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma';
 import { DashboardStats } from '@/components/dashboard/DashboardStats';
 import { RecentFeedback } from '@/components/dashboard/RecentFeedback';
 
+export const revalidate = 0; // Always fresh
+
 export default async function DashboardPage() {
   const session = await auth();
   if (!session?.user) redirect('/login');
