@@ -1,3 +1,6 @@
+// Idempotency: track processed events
+const processedEvents = new Set<string>();
+
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
 import { prisma } from '@/lib/prisma';
@@ -15,6 +18,12 @@ export async function POST(req: NextRequest) {
     console.error('Webhook signature verification failed:', err.message);
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
   }
+
+  // Skip duplicate events
+  if (processedEvents.has(event.id)) {
+    return NextResponse.json({ received: true, duplicate: true });
+  }
+  processedEvents.add(event.id);
 
   switch (event.type) {
     case 'checkout.session.completed': {
