@@ -1,0 +1,18 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "clients": "Clients",
+    "feedback": "Feedback",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "avgNps": "Avg NPS",
+    "totalClients": "Total Clients"
+  },
+  "feedback": {
+    "submit": "Submit Feedback",
+    "thankYou": "Thank you!",
+    "score": "Score"
+  }
+}
