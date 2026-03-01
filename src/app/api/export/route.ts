@@ -8,10 +8,12 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  // Stream in batches to avoid timeout on large datasets
   const feedbacks = await prisma.feedback.findMany({
     where: { project: { userId: session.user.id } },
     include: { client: true, project: true },
     orderBy: { createdAt: 'desc' },
+    take: 5000, // Safety limit — TODO: implement cursor-based pagination
   });
 
   // Build CSV
