@@ -48,7 +48,7 @@ export function FeedbackForm({ projectName, portalSlug }: FeedbackFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6 px-4 sm:px-0">
       <div>
         <h2 className="text-2xl font-bold mb-2">Feedback for {projectName}</h2>
         <p className="text-gray-600">How would you rate your experience?</p>
@@ -57,7 +57,7 @@ export function FeedbackForm({ projectName, portalSlug }: FeedbackFormProps) {
       {/* NPS Score */}
       <div>
         <label className="block text-sm font-medium mb-2">Score (0-10)</label>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {Array.from({ length: 11 }, (_, i) => (
             <button
               key={i}
