@@ -1,0 +1,11 @@
+# Default owners for everything
+* @arjun-mehta
+
+# Backend
+src/app/api/ @sarah-chen
+src/lib/ @sarah-chen
+prisma/ @sarah-chen
+
+# Frontend
+src/components/ @marcus-johnson
+src/app/(dashboard)/ @marcus-johnson
